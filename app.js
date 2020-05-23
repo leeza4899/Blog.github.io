@@ -5,7 +5,17 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 
-mongoose.connect("mongodb://localhost/blog_app");
+mongoose.connect("mongodb+srv://lieyu:leeza4899@cluster0-dwgt1.mongodb.net/test?retryWrites=true&w=majority", {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true
+}).then(()=>{
+	console.log("connected to db");
+}).catch(err=> {
+	console.log('ERROR:', err.message);	
+});
+
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
