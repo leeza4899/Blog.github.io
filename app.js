@@ -5,7 +5,17 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 
-mongoose.connect("mongodb+srv://lieyu:leeza4899@cluster0-dwgt1.mongodb.net/test?retryWrites=true&w=majority", {
+// //////moongoose
+// const db = 'mongodb://localhost:27017/Blo'
+//     //db config
+
+// //connect to db
+// mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+//     .then(() => console.log('connected to db'))
+//     .catch(err => console.log(err));
+
+
+mongoose.connect("mongodb+srv://lieyu:leeza4899@cluster0-dwgt1.mongodb.net/Blog?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
@@ -133,7 +143,7 @@ app.delete("/blogs/:id", function(req,res){
 
 
 
-
-app.listen(process.env.PORT, process.env.IP, function(){
+PORT = 5000 || process.env.PORT;
+app.listen(PORT, process.env.IP, function(){
 	console.log("Blog Server has begun!!");
 })
